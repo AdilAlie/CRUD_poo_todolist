@@ -12,7 +12,7 @@ class TaskManager {
         $sql = "SELECT * FROM taches ORDER BY created_at DESC";
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } 
+    }
 
     // Lecture unique
     public function getTacheById($id) {
