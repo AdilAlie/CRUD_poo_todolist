@@ -1,0 +1,51 @@
+Système CRUD Sécurisé - Gestionnaire de Tâches (To-Do List)
+🎯 Objectif du projet
+Cette application a été développée dans le cadre d'une simulation d'environnement de production. L'objectif est de mettre en œuvre une architecture logicielle robuste et sécurisée pour un outil interne d'entreprise, en effectuant une transition d'un code procédural vers une architecture en Programmation Orientée Objet (POO).
+
+🛠️ Stack Technique
+Backend : PHP 8+ (Architecture POO)
+
+Base de données : MariaDB / MySQL (via PDO)
+
+Frontend : HTML5, CSS3 (Variables natives, Flexbox, BEM)
+
+Infrastructure cible : Serveur Linux (Ubuntu) sous Apache
+
+🛡️ Implémentation de la Sécurité
+Ce projet respecte les standards de sécurité de l'industrie :
+
+Anti-Injection SQL : Utilisation systématique de requêtes préparées (PDO).
+
+Protection des identifiants : Variables de configuration externalisées dans un fichier .env (ignoré par Git).
+
+Anti-CSRF : Génération et vérification stricte de jetons cryptographiques pour chaque action.
+
+Anti-XSS : Nettoyage systématique des flux de sortie HTML.
+
+Gestion des erreurs : Encapsulation globale Try/Catch avec journalisation silencieuse des erreurs fatales sur le serveur.
+
+🚀 Guide d'installation
+1. Clonage et Base de données
+git clone https://github.com/VOTRE_PSEUDO/CRUD_poo_todolist.git
+cd CRUD_poo_todolist
+
+Créez une base de données nommée todolist_db dans MariaDB.
+Créez la table requise :
+CREATE TABLE taches (
+id INT AUTO_INCREMENT PRIMARY KEY,
+titre VARCHAR(255) NOT NULL,
+date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+2. Configuration de l'environnement (.env)
+Le fichier .env n'est volontairement pas versionné. Vous devez le créer à la racine du projet :
+touch .env
+
+Ajoutez-y vos identifiants locaux :
+DB_HOST=127.0.0.1
+DB_NAME=todolist_db
+DB_USER=votre_utilisateur
+DB_PASS=votre_mot_de_passe
+
+3. Exécution
+Placez le dossier dans le répertoire public de votre serveur web (ex: /var/www/html/ pour Apache) et accédez à index.php via votre navigateur.
